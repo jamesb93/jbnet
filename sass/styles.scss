@@ -26,16 +26,13 @@ body {
 	background-color: #f4f3f2;
 }
 
-a {
+a,
+a:visited {
 	color: blue;
+}
 
-	:visited {
-		color: blue;
-	}
-
-	:hover {
-		text-transform: uppercase;
-	}
+a:hover {
+	text-transform: uppercase;
 }
 
 table {
