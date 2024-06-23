@@ -1,0 +1,15 @@
+{% macro section_list(name, type="text", sort="date") %}
+<div class="work-section">
+	<h2>{{ name | capitalize }}</h2>
+	<ul>
+		{% set section = get_section(path=name ~ "/_index.md") %}
+		{% for page in section.pages | sort(attribute=sort, reverse=true) %}
+		<li>
+			<a href="{{ page.permalink | safe }}">
+				{{ page.title }}
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endmacro %}

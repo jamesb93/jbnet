@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block content %}
+
+<h1 class="album-title">
+	{{ page.title }}
+</h1>
+<div class="release-code">
+	{{ page.extra.release_code }}
+</div>
+
+<h2>
+
+</h2>
+{{ page.content | safe }}
+{% endblock content %}

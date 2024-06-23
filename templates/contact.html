@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="contact-container">
+	<p>
+		Get in touch with me using this form.
+	</p>
+
+	<form action="https://api.web3forms.com/submit" method="POST">
+		<input type="hidden" name="access_key" value="5207b34a-0070-4a8d-a903-d9b9d50fd846">
+		<label for="name">Name:</label>
+
+		<input type="text" id="name" name="name" required>
+		<label for="email">Email:</label>
+
+		<input type="email" id="email" name="email" required>
+		<label for="message">Message:</label>
+
+		<textarea id="message" name="message" required></textarea>
+
+		<button type="submit">Submit Form</button>
+
+		<input type="hidden" name="redirect" value="https://jamesbradbury.net/contact/thanks">
+		<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+	</form>
+</div>
+
+{% endblock content %}
