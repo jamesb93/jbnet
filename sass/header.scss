@@ -2,7 +2,6 @@ header {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	/* This aligns items to the left and right */
 	align-items: center;
 
 	nav {
@@ -10,7 +9,6 @@ header {
 		flex-direction: row;
 		gap: 0.5em;
 		justify-content: flex-start;
-		/* Align items to the left */
 		align-items: center;
 
 		a {
@@ -22,14 +20,12 @@ header {
 /* Media query for small screens */
 @media (max-width: 700px) {
 	header {
-		flex-direction: column-reverse;
+		flex-direction: column;
 		gap: 0.5em;
 		justify-content: flex-start;
-		/* Align items to the top and left */
-	}
 
-	nav {
-		justify-content: flex-start;
-		/* Ensure nav items are also aligned to the left */
+		nav {
+			justify-content: flex-start;
+		}
 	}
 }
