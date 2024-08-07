@@ -33,15 +33,12 @@
     <main>
       <header>
         <nav>
-          {% set accumulated_path = "" %} {% for component in current_path |
-          split(pat='/') %} {% set_global accumulated_path = accumulated_path ~
-          component ~ "/" %} {% if loop.first %}
+          {% if current_path is defined %} {{
+          macros::nav_links(path=current_path) }} {% else %}
           <h1>
-            <a href="{{ accumulated_path | safe }}"> james bradbury </a>
+            <a href="{{ config.base_url }}">james bradbury</a>
           </h1>
-          {% endif %} {% if loop.last %}
-          <a href="{{ accumulated_path | safe }}"> {{ component }} </a>
-          {% endif %} {% endfor %}
+          {% endif %}
         </nav>
         <nav class="main-nav">
           <a href="/about">about</a>

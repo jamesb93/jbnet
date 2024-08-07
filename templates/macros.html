@@ -1,15 +1,21 @@
 {% macro section_list(name, type="text", sort="date") %}
 <div class="work-section">
-	<h2>{{ name | capitalize }}</h2>
-	<ul>
-		{% set section = get_section(path=name ~ "/_index.md") %}
-		{% for page in section.pages | sort(attribute=sort, reverse=true) %}
-		<li>
-			<a href="{{ page.permalink | safe }}">
-				{{ page.title }}
-			</a>
-		</li>
-		{% endfor %}
-	</ul>
+  <h2>{{ name | capitalize }}</h2>
+  <ul>
+    {% set section = get_section(path=name ~ "/_index.md") %} {% for page in
+    section.pages | sort(attribute=sort, reverse=true) %}
+    <li>
+      <a href="{{ page.permalink | safe }}"> {{ page.title }} </a>
+    </li>
+    {% endfor %}
+  </ul>
 </div>
-{% endmacro %}
+{% endmacro %} {% macro nav_links(path) %} {% set accumulated_path = "" %} {%
+for component in path | split(pat='/') %} {% set_global accumulated_path =
+accumulated_path ~ component ~ "/" %} {% if loop.first %}
+<h1>
+  <a href="{{ accumulated_path | safe }}">james bradbury</a>
+</h1>
+{% endif %} {% if loop.last and not loop.first %}
+<a href="{{ accumulated_path | safe }}">{{ component }}</a>
+{% endif %} {% endfor %} {% endmacro nav_links %}
