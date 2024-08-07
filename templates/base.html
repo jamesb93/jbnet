@@ -36,7 +36,9 @@
           {% set accumulated_path = "" %} {% for component in current_path |
           split(pat='/') %} {% set_global accumulated_path = accumulated_path ~
           component ~ "/" %} {% if loop.first %}
-          <a href="{{ accumulated_path | safe }}"> james bradbury </a>
+          <h1>
+            <a href="{{ accumulated_path | safe }}"> james bradbury </a>
+          </h1>
           {% endif %} {% if loop.last %}
           <a href="{{ accumulated_path | safe }}"> {{ component }} </a>
           {% endif %} {% endfor %}
