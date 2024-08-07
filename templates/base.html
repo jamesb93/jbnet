@@ -2,46 +2,36 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>james bradbury</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-	<meta charset="utf-8">
-	<title>james bradbury</title>
-	<link rel="stylesheet" href="/styles.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+    {% include "partials/schema_org.html" %}
+  </head>
 
-<body>
-	<main>
-		<header>
-			<nav>
-				{% set accumulated_path = "" %}
-				{% for component in current_path | split(pat='/') %}
-				{% set_global accumulated_path = accumulated_path ~ component ~ "/" %}
-				{%if loop.first %}
-				<a href="{{ accumulated_path | safe }}">
-					james bradbury
-				</a>
-				{% endif %}
-				{%if loop.last %}
-				<a href="{{ accumulated_path | safe }}">
-					{{ component }}
-				</a>
-				{% endif %}
-				{% endfor %}
-			</nav>
+  <body>
+    <main>
+      <header>
+        <nav>
+          {% set accumulated_path = "" %} {% for component in current_path |
+          split(pat='/') %} {% set_global accumulated_path = accumulated_path ~
+          component ~ "/" %} {%if loop.first %}
+          <a href="{{ accumulated_path | safe }}"> james bradbury </a>
+          {% endif %} {%if loop.last %}
+          <a href="{{ accumulated_path | safe }}"> {{ component }} </a>
+          {% endif %} {% endfor %}
+        </nav>
 
-			<nav class="main-nav">
-				<a href="/about">about</a>
-				<a href="/contact">contact</a>
-				<a href="/publications">publications</a>
-			</nav>
-		</header>
+        <nav class="main-nav">
+          <a href="/about">about</a>
+          <a href="/contact">contact</a>
+          <a href="/publications">publications</a>
+        </nav>
+      </header>
 
-		<section class="section">
-			{% block content %}
-			{% endblock %}
-		</section>
-	</main>
-</body>
-
+      <section class="section">{% block content %} {% endblock %}</section>
+    </main>
+  </body>
 </html>

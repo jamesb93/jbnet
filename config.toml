@@ -7,3 +7,13 @@ highlight_code = true
 
 [extra]
 release_code = ""
+full_name = "James Bradbury "
+given_name = "James"
+family_name = "Bradbury"
+profile_image = "/front.jpg"
+job_title = "Software Developer"
+email = "hi@jamesbradbury.net"
+social_profiles = [
+    "https://twitter.com/james_bradbury_",
+    "https://github.com/jamesb93"
+]

@@ -1,0 +1,18 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ config.extra.full_name | default(value="James Bradbury") }}",
+    "givenName": "{{ config.extra.given_name | default(value="James") }}",
+    "familyName": "{{ config.extra.family_name | default(value="Bradbury") }}",
+    "url": "{{ config.base_url | safe }}",
+    "image": "{{ config.base_url | safe }}{{ config.extra.profile_image | default(value="/profile.jpg") }}",
+    "jobTitle": "{{ config.extra.job_title | default(value="") }}",
+    "email": "{{ config.extra.email | default(value="") }}",
+    "sameAs": [
+      {% for profile in config.extra.social_profiles | default(value=[]) %}
+      "{{ profile }}"{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+</script>
