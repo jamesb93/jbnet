@@ -1,14 +1,17 @@
-{% extends "base.html" %}
-{% import "macros.html" as macros %}
-
-{% block content %}
+{% extends "base.html" %} {% import "macros.html" as macros %} {% block content
+%}
 
 <div class="front-page-container">
-	<div class="works">
-		{{ macros::section_list(name="albums", sort="date") }}
-		{{ macros::section_list(name="projects", sort="extra.order") }}
-	</div>
-	<img src="/front.jpg" alt="" class="front-image">
+  <div class="works">
+    {{ macros::section_list(name="albums", sort="date") }} {{
+    macros::section_list(name="projects", sort="extra.order") }}
+  </div>
+  <img
+    src="/front.jpg"
+    alt=""
+    class="front-image"
+    alt="generated image of an evolving spectrum"
+  />
 </div>
 
 {% endblock content %}
