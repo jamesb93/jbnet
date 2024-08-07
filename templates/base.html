@@ -1,5 +1,4 @@
 {% import "macros.html" as macros %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,30 +6,47 @@
     <title>james bradbury</title>
     <link rel="stylesheet" href="/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- HTML Meta Tags -->
+    <meta name="description" content="{{ config.extra.description }}" />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="{{ config.base_url | safe }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="james bradbury" />
+    <meta property="og:description" content="{{ config.extra.description }}" />
+    <meta
+      property="og:image"
+      content="https://opengraph.b-cdn.net/production/images/a9f68e77-2976-48ac-b98e-66941d150b89.jpg?token=RNKHSLRLBhOFI-QjqFCZruOc1Kfs4xtMtiLvxaFXMMc&height=1186&width=1200&expires=33259066068"
+    />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="jamesbradbury.net" />
+    <meta property="twitter:url" content="{{ config.base_url | safe }}" />
+    <meta name="twitter:title" content="james bradbury" />
+    <meta name="twitter:description" content="{{ config.extra.description }}" />
+    <meta
+      name="twitter:image"
+      content="https://opengraph.b-cdn.net/production/images/a9f68e77-2976-48ac-b98e-66941d150b89.jpg?token=RNKHSLRLBhOFI-QjqFCZruOc1Kfs4xtMtiLvxaFXMMc&height=1186&width=1200&expires=33259066068"
+    />
     {% include "partials/schema_org.html" %}
   </head>
-
   <body>
     <main>
       <header>
         <nav>
           {% set accumulated_path = "" %} {% for component in current_path |
           split(pat='/') %} {% set_global accumulated_path = accumulated_path ~
-          component ~ "/" %} {%if loop.first %}
+          component ~ "/" %} {% if loop.first %}
           <a href="{{ accumulated_path | safe }}"> james bradbury </a>
-          {% endif %} {%if loop.last %}
+          {% endif %} {% if loop.last %}
           <a href="{{ accumulated_path | safe }}"> {{ component }} </a>
           {% endif %} {% endfor %}
         </nav>
-
         <nav class="main-nav">
           <a href="/about">about</a>
           <a href="/contact">contact</a>
           <a href="/publications">publications</a>
         </nav>
       </header>
-
       <section class="section">{% block content %} {% endblock %}</section>
     </main>
   </body>
