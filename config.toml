@@ -1,6 +1,7 @@
 base_url = "https://jamesbradbury.net"
 compile_sass = true
 build_search_index = false
+generate_feeds = true
 
 [markdown]
 highlight_code = true
